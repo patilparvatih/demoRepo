@@ -1,17 +1,13 @@
-# Python code
-import json
-data = {
-    "name":"github",
-    "website":"github.com"
-}
+from dotenv import load_dotenv
+from os import getenv
+from flask import Flask
 
-d = json.dumps(data)
-print(d)
+PORT = int(getenv("PORT"))
+app = Flask(__name__),
 
-jsonData = """{
-    "name":"google",
-    "website":"google.com"
-}"""
+@app.get("/")
+def home():
+    return "<h1>Welcome to Flask server</h1>"
 
-data = json.loads(jsonData)
-print(data)
+if __name__ == '__main__':
+    app.run(debug=True,port=PORT)
